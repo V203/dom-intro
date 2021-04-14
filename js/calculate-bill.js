@@ -15,8 +15,22 @@ calculateBtn_.addEventListener("click",function(){
             var billString_ = billString__.split(", ")
 
             for(var i = 0;i<billString_.length;i++){
-                billString_[i] == "call" ? total+=2.75 : total+=0.65; 
-            }           
+            //     billString_[i] == "call" ? total+=2.75 : total+=0.65; 
+                 if(billString_ == ""){
+                     alert("Please type 'call' or or sms in the Enter  text area.");
+                 }
+            //
+                if(billString_[i] == "call"){
+                    total += 2.75;
+                }
+                if(billString_[i] == "sms"){
+                    total+=0.65;
+                }
+             
+            }
+            
+
+            
             if(total > 20){                
                 billTotal.classList.add("warning")
 
@@ -28,4 +42,4 @@ calculateBtn_.addEventListener("click",function(){
             return billTotal.innerHTML = total.toFixed(2);            
           }
 
-          
+       
