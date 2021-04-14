@@ -21,7 +21,7 @@ var billItemTypeRadio_ = document.querySelector(".billItemTypeRadio:checked");
 
 var call_ = 0;
 var sms_ = 0;
-var total_ = call_ + sms_;
+
 
 totalTwo.classList.remove("warning");
 totalTwo.classList.remove("danger");
@@ -29,7 +29,7 @@ var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked
 
 
 radioBillAdd_.addEventListener("click", function () {
-
+    const total_ = call_ + sms_;
 
     var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
     if (checkedRadioBtn) {
