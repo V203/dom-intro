@@ -12,38 +12,38 @@
 // * display the latest total on the screen
 
 
-var callTotalTwo = document.querySelector(".callTotalTwo");
-var smsTotalTwo = document.querySelector(".smsTotalTwo");
-var totalTwo = document.querySelector(".totalTwo");
-var radioBillAdd_ = document.querySelector(".radioBillAddBtn");
-var billItemTypeRadio_ = document.querySelector(".billItemTypeRadio:checked");
+let callTotalTwo = document.querySelector(".callTotalTwo");
+let smsTotalTwo = document.querySelector(".smsTotalTwo");
+let totalTwo = document.querySelector(".totalTwo");
+let radioBillAdd_ = document.querySelector(".radioBillAddBtn");
+let billItemTypeRadio_ = document.querySelector(".billItemTypeRadio:checked");
 
 
-var call_ = 0;
-var sms_ = 0;
+let call__ = 0;
+let sms__ = 0;
 
+let total__ = call__ + sms__;
 
+let checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
 totalTwo.classList.remove("warning");
 totalTwo.classList.remove("danger");
-var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
-
 
 radioBillAdd_.addEventListener("click", function () {
-    const total_ = call_ + sms_;
+    
 
-    var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
+    let checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
     if (checkedRadioBtn) {
-        var billItemType = checkedRadioBtn.value
-        checkedRadioBtn.value == "call" ? call_ += 2.75 : sms_ += 0.75
-        callTotalTwo.innerHTML = call_.toFixed(2);
-        smsTotalTwo.innerHTML = sms_.toFixed(2);
-        totalTwo.innerHTML = (total_ = call_ + sms_);
+        let billItemType = checkedRadioBtn.value
+        billItemType == "call" ? call__ += 2.75 : sms__ += 0.75
+        callTotalTwo.innerHTML = call__.toFixed(2);
+        smsTotalTwo.innerHTML = sms__.toFixed(2);
+        totalTwo.innerHTML = (total__ = call__ + sms__);
 
     }
-    if (total_ >= 50) {
+    if (total__ >= 50) {
         totalTwo.classList.add("danger");
 
-    } else if (total_ >= 30) {
+    } else if (total__ >= 30) {
         totalTwo.classList.add("warning");
     }
 

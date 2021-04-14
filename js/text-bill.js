@@ -12,18 +12,18 @@
 // * display the latest total on the screen
 
 
-var callTotalOne = document.querySelector(".callTotalOne");
-var smsTotalOne = document.querySelector(".smsTotalOne");
-var billTypeText = document.querySelector(".billTypeText");
-var totalOne = document.querySelector(".totalOne");
+let callTotalOne = document.querySelector(".callTotalOne");
+let smsTotalOne = document.querySelector(".smsTotalOne");
+let billTypeText = document.querySelector(".billTypeText");
+let totalOne = document.querySelector(".totalOne");
 
 
 
-var btn_ = document.querySelector(".button-primary.addToBillBtn")
+let btn_ = document.querySelector(".button-primary.addToBillBtn")
 
-var call_ = 0;
-var sms_ = 0;
-var total_ = 0;
+let call_ = 0;
+let sms_ = 0;
+let total_ = 0;
 
 btn_.addEventListener("click", function () {
 
@@ -36,7 +36,7 @@ btn_.addEventListener("click", function () {
 calculate_ = (x) => {
 
 
-    var x = billTypeText.value.trim();
+     x = billTypeText.value.trim();
     if (x == "") {
         alert("Please enter 'call' or 'sms' in the billtype text field")
     }

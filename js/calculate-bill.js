@@ -1,7 +1,7 @@
 
-var calculateBtn_ = document.querySelector(".button-primary");
-var billString= document.querySelector(".billString");
-var billTotal = document.querySelector(".billTotal");
+let calculateBtn_ = document.querySelector(".button-primary");
+let billString= document.querySelector(".billString");
+let billTotal = document.querySelector(".billTotal");
 
 calculateBtn_.addEventListener("click",function(){ 
     billTotal.classList.remove("warning")
@@ -11,10 +11,10 @@ calculateBtn_.addEventListener("click",function(){
         })  
         function calculateBill(billString__){
 
-            var total = 0;
-            var billString_ = billString__.split(", ")
+            let total = 0;
+            let billString_ = billString__.split(", ")
 
-            for(var i = 0;i<billString_.length;i++){
+            for(let i = 0;i<billString_.length;i++){
             //     billString_[i] == "call" ? total+=2.75 : total+=0.65; 
                  if(billString_ == ""){
                      alert("Please type 'call' or or sms in the -->Enter Bill (Text area).");
