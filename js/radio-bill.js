@@ -24,14 +24,14 @@ let sms__ = 0;
 
 let total__ = call__ + sms__;
 
-let checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
+
 totalTwo.classList.remove("warning");
 totalTwo.classList.remove("danger");
 
 radioBillAdd_.addEventListener("click", function () {
     
-
     let checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
+    
     if (checkedRadioBtn) {
         let billItemType = checkedRadioBtn.value
         billItemType == "call" ? call__ += 2.75 : sms__ += 0.75
