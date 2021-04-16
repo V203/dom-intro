@@ -30,91 +30,96 @@
 
     var callTotalSettings = document.querySelector(".callTotalSettings");
     var smsTotalSettings = document.querySelector(".smsTotalSettings");
-    var totalSettings = document.querySelector(".totalSettings")
-    var button_add = document.querySelector(".button-primary-add")
+    var totalSettings = document.querySelector(".totalSettings");
+    var button_add = document.querySelector(".button-primary-add");
 
-    var warningLevelSettings = document.querySelector(".warningLevelSettings")
-    var criticalLevelSettings = document.querySelector(".criticalLevelSettings");
-    var updateSettingsbtn = document.querySelector(".button-primary-updateSettings")
+    var warningLevelSetting = document.querySelector(".warningLevelSetting");
+    var criticalLevelSetting = document.querySelector(".criticalLevelSetting");
+    var updateSettingsbtn = document.querySelector(".button-primary-updateSettings");
 
 
+    var call = 0;
+    var sms = 0;
+    var total = 0;
 
+    var warnLevel =0;
+    var critLevel =0; 
+
+    var _call_ = 0;
+    var _sms_ = 0;
+
+    updateSettingsbtn.addEventListener("click", function () {
+        totalSettings.classList.remove("danger")
+        totalSettings.classList.remove("warning")
+        
+
+        call = parseFloat(callCostSetting.value);
+        sms = parseFloat(smsCostSetting.value);
+        warnLevel = parseFloat(warningLevelSetting.value);
+        critLevel= parseFloat(criticalLevelSetting.value);
+           
+        
+       
+        if(total >=warnLevel){
+            totalSettings.classList.add("warning")
+        }
+        if(total >= critLevel){
+            totalSettings.classList.remove("danger")
+        }
+         smsTotalSettings.innerHTML = _sms_.toFixed(2);
+            callTotalSettings.innerHTML = _call_.toFixed(2);
+        
+     
+        // call = callSet;
+        // sms = smsSet;
+        // total = call + sms;
+        
+
+
+        
+    })
 
 
 
     button_add.addEventListener("click", function () {
 
-        
 
+        
 
         var x = document.querySelector(".billItemTypeWithSettings:checked");
         if (x) {
             let y = x.value
-            y == "call" ? call++ : undefined;
-            y == "sms" ? sms++ : undefined;
+            
+            // y == "call" ? _call_ +=call : undefined;
+            // y == "sms" ? _sms_ +=sms : undefined;
 
-            smsTotalSettings.innerHTML = sms.toFixed(2);
-        callTotalSettings.innerHTML = call.toFixed(2);
+            if(y=="call"){
+                _call_ +=call
+            }
+            if(y=="sms"){
+                _sms_ +=sms
+            }smsTotalSettings.innerHTML = _sms_.toFixed(2);
+            callTotalSettings.innerHTML = _call_.toFixed(2);
 
-        totalSettings.innerHTML = (total = call + sms);
-
-        }
-        
-        
-
-        if (total >= 20) {
-            totalSettings.classList.add("danger");
-
-        } else if (total >= 10) {
-            totalSettings.classList.add("warning");
-        }
-       
-
-
-    })
-
-   var call=0.0;
-    var sms=0.0;
-    var total = 0.0;
-
-    updateSettingsbtn.addEventListener("click",function(){
-      var callSet =  parseFloat(callCostSetting.value);
-      var   smsSet = parseFloat(smsCostSetting.value);
-        
-        call = callSet ;
-         sms = smsSet;
-         total = call + sms;
-
-        alert('call-->'+call+" sms--> "+sms+" total-->"+total)
-    })
+            totalSettings.innerHTML = (total = _call_ + _sms_);
+            if (total >= warnLevel) {
+                totalSettings.classList.add("warning");
     
+            } if (total >= critLevel) {
+                totalSettings.classList.add("danger");
+            }
+
+        }
 
 
-   
 
-
-
-// var calc = (x)=>{
-//     if (x) {
-//             let y = x.value
-//             y == "call" ? call += 2.75 : undefined;
-//             y == "sms" ? sms += 0.75 : undefined;
-
-//         }
-//         smsTotalSettings.innerHTML = sms.toFixed(2);
-//         callTotalSettings.innerHTML = call.toFixed(2);
-
-//         totalSettings.innerHTML = (total = call + sms);
         
 
-//         if (total >= 20) {
-//             totalSettings.classList.add("danger");
 
-//         } else if (total >= 10) {
-//             totalSettings.classList.add("warning");
-//         }
-// }
+    })
 
+ 
 
+    
 
 }
