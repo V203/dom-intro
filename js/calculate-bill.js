@@ -17,7 +17,7 @@ calculateBtn_.addEventListener("click",function(){
             for(let i = 0;i<billString_.length;i++){
             //     billString_[i] == "call" ? total+=2.75 : total+=0.65; 
                  if(billString_ == ""){
-                     alert("Please type 'call' or or sms in the -->Enter Bill (Text area).");
+                     alert("Please type 'call' or or sms in the --> Enter Bill (Text area).");
                  }
             //
                 if(billString_[i] == "call"){
