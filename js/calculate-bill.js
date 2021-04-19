@@ -1,46 +1,51 @@
 
-let calculateBtn_ = document.querySelector(".button-primary");
-let billString= document.querySelector(".billString");
-let billTotal = document.querySelector(".billTotal");
+{
+        let calculateBtn_ = document.querySelector(".button-primary");
+        let billString___= document.querySelector(".billString");
+        let billTotal = document.querySelector(".billTotal");
 
-calculateBtn_.addEventListener("click",function(){ 
-    billTotal.classList.remove("warning")
-    billTotal.classList.remove("danger")
-
-    calculateBill(billString.value);
-        })  
-        function calculateBill(billString__){
-
-            let total = 0;
-            var trim = billString__.split(", ")
-            let billString_ = trim.trim()
-
-            for(let i = 0;i<billString_.length;i++){
-            //     billString_[i] == "call" ? total+=2.75 : total+=0.65; 
-                 if(billString_ == ""){
-                     alert("Please type 'call' or or sms in the --> Enter Bill (Text area).");
-                 }
-            //
-                if(billString_[i] == "call"){
-                    total += 2.75;
-                }
-                if(billString_[i] == "sms"){
-                    total+=0.65;
-                }
-             
-            }
+        calculateBtn_.addEventListener("click",function(){ 
+            billTotal.classList.remove("warning")
+            billTotal.classList.remove("danger")
+           
+            calc(billString___.value);
             
+                })  
 
-            
-            if(total > 20){                
-                billTotal.classList.add("warning")
 
-            }
-            if(total > 30){
+                var calc = () =>{
+                    var billString__ = billString___.value;
+                    var billString_ = billString__.split(",");
+                   // alert(typeof billString)
+                    var total =0;
+
+                    for(var i = 0;i<billString_.length;i++){
+                        var billString = billString_[i].trim();
+                        if(billString === "call"){
+                            total += 2.75;
+
+                        }
+                        else if(billString === "sms"){
+                            total += 0.75;
+                        }
+                        if(total >= 30){
+                            billTotal.classList.add("warning");
+
+                        }
+                        if(total > 50){
+                            billTotal.classList.add("danger");
+                        }
+
+                    }
+                    var roundedBillTotal = total.toFixed(2);
+                     billTotal.innerHTML = roundedBillTotal;
+
+
+
+                }
+
+
+
                 
-                billTotal.classList.add("danger")
-            }
-            return billTotal.innerHTML = total.toFixed(2);            
-          }
-
-       
+                
+ }
