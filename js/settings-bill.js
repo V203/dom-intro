@@ -22,47 +22,16 @@
     var _call_ = 0;
     var _sms_ = 0;
 
-    updateSettingsbtn.addEventListener("click", function () {
-        totalSettings.classList.remove("danger")
-        totalSettings.classList.remove("warning")
-
-
-        call = parseFloat(callCostSetting.value);
-        sms = parseFloat(smsCostSetting.value);
-        warnLevel = parseFloat(warningLevelSetting.value);
-        critLevel = parseFloat(criticalLevelSetting.value);
-
-
-        if (total >= warnLevel) {
-            totalSettings.classList.add("warning")
-        }
-        if (total >= critLevel) {
-            totalSettings.classList.remove("danger")
-        }
-        smsTotalSettings.innerHTML = _sms_.toFixed(2);
-        callTotalSettings.innerHTML = _call_.toFixed(2);
-
-        testNum();
-
-    })
-
-
 
     button_add.addEventListener("click", function () {
+        deactivate();
+       
         testNum();
-
-
-
-
 
         var x = document.querySelector(".billItemTypeWithSettings:checked");
 
         if (x) {
             let y = x.value
-
-            // y == "call" ? _call_ +=call : undefined;
-            // y == "sms" ? _sms_ +=sms : undefined;
-
             if (y == "call") {
                 _call_ += call
             }
@@ -92,6 +61,36 @@
 
 
     })
+
+  
+    updateSettingsbtn.addEventListener("click", function () {
+        activate();
+        totalSettings.classList.remove("danger")
+        totalSettings.classList.remove("warning")
+        
+
+        call = parseFloat(callCostSetting.value);
+        sms = parseFloat(smsCostSetting.value);
+        warnLevel = parseFloat(warningLevelSetting.value);
+        critLevel = parseFloat(criticalLevelSetting.value);
+
+
+        if (total >= warnLevel) {
+            totalSettings.classList.add("warning")
+        }
+        if (total >= critLevel) {
+            totalSettings.classList.remove("danger")
+        }
+        smsTotalSettings.innerHTML = _sms_.toFixed(2);
+        callTotalSettings.innerHTML = _call_.toFixed(2);
+        activate();
+        testNum();
+
+    })
+
+
+
+    
 
 
 
@@ -136,7 +135,31 @@
             criticalLevelSetting.value = "";
             alert("You cannot input negative values in critical level settings.");
         }
+        if(critLevel < warnLevel){
+            warningLevelSetting.value = "";
+            criticalLevelSetting.value = "";
+            alert("Warning setting cannot be less than critical setting");
+
+        }
+       
  
+   }
+
+   ////////////////////////////////////////////////////////////////Funtcions__Below//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   var deactivate = () =>{
+       if(critLevel <= total){
+           document.querySelector(".button-primary-add").disabled = true;
+           alert("You have exceded critical amount threshold");
+
+       }  
+       
+   }
+
+   var activate = () =>{
+       if(critLevel >= total){
+        document.querySelector(".button-primary-add").disabled = false;
+       }
    }
 
 }
