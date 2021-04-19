@@ -1,5 +1,9 @@
 
 {
+
+
+
+
     var callCostSetting = document.querySelector(".callCostSetting");
     var smsCostSetting = document.querySelector(".smsCostSetting");
 
@@ -54,10 +58,6 @@
             }
 
         }
-
-
-
-
 
 
     })
@@ -161,5 +161,8 @@
         document.querySelector(".button-primary-add").disabled = false;
        }
    }
+
+
+
 
 }
