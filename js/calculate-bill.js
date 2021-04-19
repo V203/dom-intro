@@ -12,7 +12,8 @@ calculateBtn_.addEventListener("click",function(){
         function calculateBill(billString__){
 
             let total = 0;
-            let billString_ = billString__.split(", ")
+            var trim = billString__.split(", ")
+            let billString_ = trim.trim()
 
             for(let i = 0;i<billString_.length;i++){
             //     billString_[i] == "call" ? total+=2.75 : total+=0.65; 

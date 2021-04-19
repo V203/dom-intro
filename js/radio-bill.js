@@ -37,7 +37,8 @@ radioBillAdd_.addEventListener("click", function () {
         billItemType == "call" ? call__ += 2.75 : sms__ += 0.75
         callTotalTwo.innerHTML = call__.toFixed(2);
         smsTotalTwo.innerHTML = sms__.toFixed(2);
-        totalTwo.innerHTML = (total__ = call__ + sms__);
+        total__ = call__ + sms__
+        totalTwo.innerHTML = total__.toFixed(2);
 
     }
     if (total__ >= 50) {

@@ -61,7 +61,8 @@ calculate_ = (x) => {
     }
     callTotalOne.innerHTML = call_.toFixed(2);
     smsTotalOne.innerHTML = sms_.toFixed(2);
-    totalOne.innerHTML = (total_ = call_ + sms_);
+    total_ = call_ + sms_
+    totalOne.innerHTML = total_.toFixed(2) ;
 
     if (total_ >= 50) {
         totalOne.classList.add("danger")
