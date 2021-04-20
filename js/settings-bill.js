@@ -99,46 +99,46 @@
         if (isNaN(call)) {
 
             callCostSetting.value = "";
-            alert("please Enter a Digit in all the call cost settings input fields.")
+            alert("The  call cost textField  need's to be filled in.--> eg 12.00")
 
         }
         if (isNaN(sms)) {
             smsCostSetting.value = ""
-            alert("please Enter a Digit in all the sms cost settings input fields.")
+            alert("The  sms cost textField  need's to be filled in. --> eg 16.00")
         }
         if (isNaN(warnLevel)) {
             warningLevelSetting.value = "";
-            alert("please Enter a Digit in all the warning Level settings input fields.")
+            alert("The  warning level textField  need's to be filled in.--> eg 30.00")
         }
         if (isNaN(critLevel)) {
             criticalLevelSetting.value = "";
-            alert("please Enter a Digit in all the ctitical settings input fields.")
+            alert("The  critical level textField  need's to be filled in.--> eg 60.00")
         }
 
    
         if (Math.sign(call) === -1) {
             callCostSetting.value = "";
-            alert("You cannot input negative values in Call cost settings.");
+            alert("You can not input negative A amount  in 'call cost' textField.");
 
 
         }
         if (Math.sign(sms) === -1) {
             smsCostSetting.value = ""
-            alert("You cannot input negative values in sms cost settings.");
+            alert("You can not input negative A amount in sms cost textField.");
 
         }
         if (Math.sign(warnLevel) === -1) {
             warningLevelSetting.value = "";
-            alert("You cannot input negative values in warning level settings.");
+            alert("You can not input negative A amount in warning level textField.");
         }
         if (Math.sign(critLevel) === -1) {
             criticalLevelSetting.value = "";
-            alert("You cannot input negative values in critical level settings.");
+            alert("You can not input negative values in critical level textField.");
         }
         if(critLevel < warnLevel){
             warningLevelSetting.value = "";
             criticalLevelSetting.value = "";
-            alert("Warning setting cannot be less than critical setting");
+            alert("Warning setting can not be less than critical setting");
 
         }
        
