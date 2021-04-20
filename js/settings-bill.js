@@ -138,7 +138,7 @@
         if(critLevel < warnLevel){
             warningLevelSetting.value = "";
             criticalLevelSetting.value = "";
-            alert("Warning setting can not be less than critical setting");
+            alert("Warning input amount  can not be less than critical amount");
 
         }
        
