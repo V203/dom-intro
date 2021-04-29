@@ -41,13 +41,8 @@ calculate_ = (x) => {
         alert("Please enter 'call' or 'sms' in the billtype text field")
     }
 
-
-
-
     if (x === "call") {
-
         call_ += 2.75
-
 
     }
 
