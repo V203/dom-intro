@@ -21,51 +21,44 @@ let totalOne = document.querySelector(".totalOne");
 
 let btn_ = document.querySelector(".button-primary.addToBillBtn")
 
-let call_ = 0;
-let sms_ = 0;
-let total_ = 0;
 
 btn_.addEventListener("click", function () {
-
-    calculate_(billTypeText.value)
-    //total(call_,sms_)
-
+    let tbill = textbill();
+    
+    alert(tbill.add(billTypeText.value))
 });
 
 
-calculate_ = (x) => {
+// add = (x) => {
 
 
-     x = billTypeText.value.trim();
-    if (x == "") {
-        alert("Please enter 'call' or 'sms' in the billtype text field")
-    }
+//      x = billTypeText.value.trim();
+//     if (x == "") {
+//         alert("Please enter 'call' or 'sms' in the billtype text field")
+//     }
 
-    if (x === "call") {
-        call_ += 2.75
+//     if (x === "call") {
+//         call_ += 2.75
 
-    }
+//     }
 
-    else if (x === "sms") {
+//     else if (x === "sms") {
 
-        sms_ += 0.75
-    }
-    else {
-        alert("Please enter 'call' or 'sms' in the billtype text field")
-        billTypeText.value ="";
-    }
-    callTotalOne.innerHTML = call_.toFixed(2);
-    smsTotalOne.innerHTML = sms_.toFixed(2);
-    total_ = call_ + sms_
-    totalOne.innerHTML = total_.toFixed(2) ;
+//         sms_ += 0.75
+//     }
+   
+//     callTotalOne.innerHTML = call_.toFixed(2);
+//     smsTotalOne.innerHTML = sms_.toFixed(2);
+//     total_ = call_ + sms_
+//     totalOne.innerHTML = total_.toFixed(2) ;
 
-    if (total_ >= 50) {
-        totalOne.classList.add("danger")
-    } else if (total_ >= 30) {
-        totalOne.classList.add("warning")
-    }
+//     if (total_ >= 50) {
+//         totalOne.classList.add("danger")
+//     } else if (total_ >= 30) {
+//         totalOne.classList.add("warning")
+//     }
 
-}
+// }
 
 
 
