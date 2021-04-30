@@ -19,34 +19,54 @@ var radioBillAdd_ = document.querySelector(".radioBillAddBtn");
 var billItemTypeRadio_ = document.querySelector(".billItemTypeRadio:checked");
 
 
-var call_ = 0;
-var sms_ = 0;
-var total_ = call_ + sms_;
+// var call_ = 0;
+// var sms_ = 0;
+// var total_ = call_ + sms_;
 
-totalTwo.classList.remove("warning");
-totalTwo.classList.remove("danger");
-var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
+
+
 
 
 radioBillAdd_.addEventListener("click", function () {
+    // totalTwo.classList.remove("danger");
+    // totalTwo.classList.remove("warning");
+    totalTwo.classList.remove("warning");
+    totalTwo.classList.remove("danger");
+    
 
+    
+    
+    
+    
+    let rb = radiobill();
 
     var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
-    if (checkedRadioBtn) {
-        var billItemType = checkedRadioBtn.value
-        checkedRadioBtn.value == "call" ? call_ += 2.75 : sms_ += 0.75
-        callTotalTwo.innerHTML = call_.toFixed(2);
-        smsTotalTwo.innerHTML = sms_.toFixed(2);
-        totalTwo.innerHTML = (total_ = call_ + sms_);
+    rb.checked(checkedRadioBtn.value)
+    
 
-    }
-    if (total_ >= 50) {
-        totalTwo.classList.add("danger");
+    callTotalTwo.innerHTML = rb.getCallTot();
+    smsTotalTwo.innerHTML = rb.getSmsTot();
+    totalTwo.innerHTML = rb.callSmsTot();
+    
+    totalTwo.classList.add(rb.totalClassName())
 
-    } else if (total_ >= 30) {
-        totalTwo.classList.add("warning");
-    }
 
-  
+    // var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
+    // if (checkedRadioBtn) {
+    //     var billItemType = checkedRadioBtn.value
+    //     checkedRadioBtn.value == "call" ? call_ += 2.75 : sms_ += 0.75
+    //     callTotalTwo.innerHTML = call_.toFixed(2);
+    //     smsTotalTwo.innerHTML = sms_.toFixed(2);
+    //     totalTwo.innerHTML = (total_ = call_ + sms_);
+
+    // }
+    // if (total_ >= 50) {
+    //     totalTwo.classList.add("danger");
+
+    // } else if (total_ >= 30) {
+    //     totalTwo.classList.add("warning");
+    // }
+
+
 
 });

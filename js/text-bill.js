@@ -26,40 +26,49 @@ var sms_  = 0;
 var total_ = 0;
 
 btn_.addEventListener("click",function(){
-
-    calculate_(billTypeText.value)
+    let tb = textbill()
+    // calculate_(billTypeText.value)
     //total(call_,sms_)
+    alert(tb._add(billTypeText.value))
 
+    callTotalOne.innerHTML = tb.getCall()
+    smsTotalOne.innerHTML  = tb.getSms();
+    totalOne.innerHTML = tb.smsCallTotal()
+    totalTwo.classList.add(tb.totalClassName())
+
+    
 });
 
 
-calculate_ = (x) =>{
 
 
-    var x =billTypeText.value.trim();
+// calculate_ = (x) =>{
+
+
+//     var x =billTypeText.value.trim();
     
-    if(x === "call" ){
+//     if(x === "call" ){
 
-        call_+=2.75
+//         call_+=2.75
 
     
-    }
+//     }
 
-    else if(x ==="sms"){
+//     else if(x ==="sms"){
 
-    sms_+=0.75
-                 }
-    callTotalOne.innerHTML = call_.toFixed(2);
-    smsTotalOne.innerHTML  = sms_.toFixed(2);
-    totalOne.innerHTML = (total_ = call_ + sms_);
+//     sms_+=0.75
+//                  }
+//     callTotalOne.innerHTML = call_.toFixed(2);
+//     smsTotalOne.innerHTML  = sms_.toFixed(2);
+//     totalOne.innerHTML = (total_ = call_ + sms_);
 
-    if(total_ >= 50){
-        totalOne.classList.add("danger")
-    }else if(total_ >= 30){
-        totalOne.classList.add("warning")
-    }
+//     if(total_ >= 50){
+//         totalOne.classList.add("danger")
+//     }else if(total_ >= 30){
+//         totalOne.classList.add("warning")
+//     }
                      
-            }
+//             }
 
         
 
