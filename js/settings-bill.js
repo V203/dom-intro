@@ -16,14 +16,15 @@
     var criticalLevelSetting = document.querySelector(".criticalLevelSetting");
     var updateSettingsbtn = document.querySelector(".button-primary-updateSettings");
 
-
+    let bs = billWithSettings();
 
     button_add.addEventListener("click", function () {
-        let bs = billWithSettings();
-        var x = document.querySelector(".billItemTypeWithSettings:checked");
-         bs.calc_bs(x.value)
         
-        callTotalSettings.innerHTML = bs.getCall();
+        var x = document.querySelector(".billItemTypeWithSettings:checked");
+        // alert(x.value)
+         bs.calc_bs(x.value)
+        alert(bs.getCallTotal())
+        callTotalSettings.innerHTML = bs.getCallTotal();
         smsTotalSettings.innerHTML = bs.getSms();
         
         
