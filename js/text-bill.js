@@ -22,11 +22,23 @@ let totalOne = document.querySelector(".totalOne");
 let btn_ = document.querySelector(".button-primary.addToBillBtn")
 
 
-btn_.addEventListener("click", function () {
-    let tbill = textbill();
+
+btn_.addEventListener("click",function(){
+    let tb = textbill()
+    // calculate_(billTypeText.value)
+    //total(call_,sms_)
+    tb._add(billTypeText.value)
+
+    callTotalOne.innerHTML = tb.getCall()
+    smsTotalOne.innerHTML  = tb.getSms();
+    totalOne.innerHTML = tb.smsCallTotal()
+    totalOne.classList.add(tb.totalClassName())
+
+// btn_.addEventListener("click", function () {
+//     let tbill = textbill();
     
-    alert(tbill.add(billTypeText.value))
-});
+//     alert(tbill.add(billTypeText.value))
+// });
 
 
 // add = (x) => {
@@ -73,7 +85,7 @@ btn_.addEventListener("click", function () {
 
 
 
-
+})
 
 
 
