@@ -13,30 +13,28 @@
 
 
 var callTotalOne = document.querySelector(".callTotalOne");
-var smsTotalOne  = document.querySelector(".smsTotalOne");
+var smsTotalOne = document.querySelector(".smsTotalOne");
 var billTypeText = document.querySelector(".billTypeText");
-var totalOne     = document.querySelector(".totalOne");
+var totalOne = document.querySelector(".totalOne");
+
+let tb = textbill()
+
+
+var btn_ = document.querySelector(".button-primary.addToBillBtn")
 
 
 
-var btn_         = document.querySelector(".button-primary.addToBillBtn")
-
-var call_ = 0;
-var sms_  = 0;
-var total_ = 0;
-
-btn_.addEventListener("click",function(){
-    let tb = textbill()
+btn_.addEventListener("click", function () {
     // calculate_(billTypeText.value)
     //total(call_,sms_)
-    alert(tb._add(billTypeText.value))
+    tb._add(billTypeText.value)
 
     callTotalOne.innerHTML = tb.getCall()
-    smsTotalOne.innerHTML  = tb.getSms();
+    smsTotalOne.innerHTML = tb.getSms();
     totalOne.innerHTML = tb.smsCallTotal()
-    totalTwo.classList.add(tb.totalClassName())
+    totalOne.classList.add(tb.totalClassName())
 
-    
+
 });
 
 
@@ -46,12 +44,12 @@ btn_.addEventListener("click",function(){
 
 
 //     var x =billTypeText.value.trim();
-    
+
 //     if(x === "call" ){
 
 //         call_+=2.75
 
-    
+
 //     }
 
 //     else if(x ==="sms"){
@@ -67,16 +65,9 @@ btn_.addEventListener("click",function(){
 //     }else if(total_ >= 30){
 //         totalOne.classList.add("warning")
 //     }
-                     
+
 //             }
 
-        
-
-
-           
-            
-
-               
 
 
 
@@ -89,4 +80,10 @@ btn_.addEventListener("click",function(){
 
 
 
-  
+
+
+
+
+
+
+

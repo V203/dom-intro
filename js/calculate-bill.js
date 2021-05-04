@@ -3,8 +3,13 @@ var calculateBtn_ = document.querySelector(".button-primary");
 var billString= document.querySelector(".billString");
 var billTotal = document.querySelector(".billTotal");
 
+
+
+
+
 calculateBtn_.addEventListener("click",function(){ 
     let calc = calculateBill()
+        
     billTotal.classList.remove("warning")
     billTotal.classList.remove("danger")
     billTotal.innerHTML = calc.calculate(billString.value)
