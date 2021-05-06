@@ -129,6 +129,23 @@ function billWithSettings() {
        return callSmsTotal.toFixed(2)
     }
 
+    function testNumCall(callCostSetting) {
+        if ( callCostSetting.value === "") {
+            callCostSetting.value = 0;
+           
+
+        }
+       
+
+    }
+
+    function testNumSms(smsCostSettings){
+        if( smsCostSettings.value === ""){
+            smsCostSettings.value = 0
+        }
+
+    }
+
 
 
 
@@ -151,7 +168,9 @@ function billWithSettings() {
         totalClassName,
         hasReachedCriticalLevel,
         togLevel,
-        calc
+        calc,
+        testNumCall,
+        testNumSms
 
 
 
