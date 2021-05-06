@@ -45,7 +45,7 @@ updateSettingsbtn.addEventListener("click", function () {
     totalSettings.classList.remove("warning");
     totalSettings.classList.remove("danger");
 
-    alert(callCostSetting.value)
+    
 
     bs.setCall(parseFloat(callCostSetting.value));
     bs.setSms(parseFloat(smsCostSetting.value));
