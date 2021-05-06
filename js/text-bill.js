@@ -27,7 +27,7 @@ var btn_ = document.querySelector(".button-primary.addToBillBtn")
 btn_.addEventListener("click", function () {
     // calculate_(billTypeText.value)
     //total(call_,sms_)
-    tb._add(billTypeText.value)
+    tb.add(billTypeText.value)
 
     callTotalOne.innerHTML = tb.getCall()
     smsTotalOne.innerHTML = tb.getSms();

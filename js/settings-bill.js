@@ -13,49 +13,37 @@ var updateSettingsbtn = document.querySelector(".button-primary.updateSettings")
 let bs = billWithSettings();
 
 
+button_add.addEventListener("click", function () {
+    var x = document.querySelector(".billItemTypeWithSettings:checked");
+    // alert(x.value)
+    totalSettings.classList.remove("warning");
+    totalSettings.classList.remove("danger");
 
+    bs.calc(x.value)
+
+    callTotalSettings.innerHTML =bs.getCallTotal();
+    smsTotalSettings.innerHTML = bs.getSmsTotal();
+    totalSettings.innerHTML = bs.getCallSmsTotal();
+
+    totalSettings.classList.add(bs.totalClassName())
+    
+
+})
 
 
 updateSettingsbtn.addEventListener("click", function () {
 
-    
+   
+    totalSettings.classList.remove("warning");
+    totalSettings.classList.remove("danger");
   
-
-
      bs.setCall(parseFloat(callCostSetting.value));
      bs.setSms(parseFloat(smsCostSetting.value));
      bs.setWarn(parseFloat(warningLevelSetting.value))
      bs.setCrit(parseFloat(criticalLevelSetting.value))
 
-     
-     totalSettings.classList.remove("warning");
-     totalSettings.classList.remove("danger");
- 
      totalSettings.classList.add(bs.totalClassName())
-
-
-    // alert("call"+bs.getCall()+" sms "+bs.getSms()+" warn"+ bs.getWarn()+" crit "+bs.getCrit())
-
-
-
 })
 
-button_add.addEventListener("click", function () {
-    totalSettings.classList.remove("warning");
-    totalSettings.classList.remove("danger");
-    
-
-    var x = document.querySelector(".billItemTypeWithSettings:checked");
-
-    bs.calc_bs(x.value)
-
-    callTotalSettings.innerHTML = bs.makeCall();
-    smsTotalSettings.innerHTML = bs.sendSms();
-    totalSettings.innerHTML = bs.getCallSmsTotal();
-    
 
 
-
-
-
-})
